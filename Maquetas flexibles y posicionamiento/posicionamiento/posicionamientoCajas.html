@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Posicionamiento de cajas (versión modificada)</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            font: 16px/1.3 Georgia, serif;
+            color: #111;
+            background: #f6f8fa
+        }
+
+        h1 {
+            margin: 16px 10px 8px
+        }
+
+        .caja {
+            display: block;
+            max-width: 540px;
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: 4px;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset;
+        }
+
+        .primera {
+            background: #3b82f6;
+            margin: 8px;
+        }
+
+        .segunda {
+            position: absolute;
+            top: 120px;
+            left: 460px;
+            background: #ec4899;
+            max-width: 400px;
+        }
+
+        .tercera {
+            position: relative;
+            top: -20px;
+            left: 80px;
+            background: #22c55e;
+            max-width: 370px;
+        }
+
+        .cuarta {
+            background: #f59e0b;
+            margin: 12px 8px;
+        }
+
+        .texto {
+            margin: 20px 10px;
+        }
+
+        .quinta {
+            position: relative;
+            background: #1e293b;
+            color: #e2e8f0;
+            width: 600px;
+            margin: 40px auto;
+            padding: 26px 14px 24px 14px;
+            border-radius: 6px;
+        }
+
+        .sexta {
+            position: absolute;
+            right: 30px;
+            bottom: -26px;
+            background: #334155;
+            color: #fff;
+            width: 280px;
+            padding: 10px 12px;
+            border-radius: 4px;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, .3);
+        }
+
+        .septima {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            width: 320px;
+            height: 90px;
+            background: #0ea5e9;
+            color: #fff;
+            padding: 12px 14px;
+            overflow: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+        }
+
+        .nota {
+            margin: 24px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>NO define posición</h1>
+    <div class="caja primera">
+        <strong>PRIMERA:</strong> No define posición, por lo que es <em>static</em>.
+    </div>
+
+    <div class="caja tercera">
+        <strong>TERCERA:</strong> Capa con posicionamiento relativo. Se mueve un poco desde su posición original, pero
+        mantiene su espacio.
+    </div>
+
+    <div class="caja cuarta">
+        <strong>CUARTA:</strong> Es estática. Ignora las propiedades top/left y se mantiene en el flujo normal.
+    </div>
+
+    <div class="caja segunda">
+        <strong>SEGUNDA:</strong> Capa absoluta (toma como referencia el <em>body</em> al no tener contenedor
+        posicionado).
+    </div>
+
+    <p class="texto">Prueba en alguno de los div la propiedad <code>overflow</code> para ver el comportamiento.</p>
+
+    <h1>NO define posición</h1>
+    <h1>NO define posición</h1>
+
+    <div class="quinta">
+        <strong>QUINTA:</strong> Capa con <em>position: relative</em>. Su contenido se puede usar como referencia para
+        capas absolutas internas.
+        <div class="sexta">
+            <strong>SEXTA:</strong> Dentro de quinta. Es <em>absolute</em> y se referencia a este contenedor no
+            estático.
+        </div>
+    </div>
+
+    <div class="septima">
+        <strong>SÉPTIMA:</strong> Capa fija (<em>fixed</em>). Permanece en la esquina superior derecha aunque se
+        desplace la página.
+        Su contenido tiene <em>overflow:auto</em> para mostrar barras si el texto se excede.
+    </div>
+</body>
+
+</html>

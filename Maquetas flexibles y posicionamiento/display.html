@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Display</title>
+    <style>
+        :root {
+            --alto-header: 60px;
+            --alto-footer: 60px;
+            --ancho-aside: 170px;
+            --c-rojo: #ef0e0e;
+            --c-verde: #137b0f;
+            --c-amarillo: #ecee0d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Georgia, serif;
+        }
+
+        /* Contenedor raíz */
+        .wrap {
+            position: relative;
+            height: 100vh;
+            /* Ocupa toda la ventana */
+            overflow: hidden;
+            /* Evita scroll doble de la página */
+        }
+
+        /* Laterales */
+        .izquierda,
+        .derecha {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: var(--ancho-aside);
+            background: var(--c-rojo);
+            text-align: center;
+            padding-top: .5rem;
+        }
+
+        .izquierda {
+            left: 0;
+        }
+
+        .derecha {
+            right: 0;
+        }
+
+        /* Barras superior e inferior */
+        .arriba,
+        .abajo {
+            position: absolute;
+            left: var(--ancho-aside);
+            right: var(--ancho-aside);
+            height: var(--alto-header);
+            background: var(--c-verde);
+            text-align: center;
+            line-height: var(--alto-header);
+        }
+
+        .arriba {
+            top: 0;
+        }
+
+        .abajo {
+            bottom: 0;
+            height: var(--alto-footer);
+            line-height: var(--alto-footer);
+        }
+
+        /* Zona central */
+        .medio {
+            position: absolute;
+            left: var(--ancho-aside);
+            right: var(--ancho-aside);
+            top: var(--alto-header);
+            bottom: var(--alto-footer);
+            background: var(--c-amarillo);
+            padding: 1.5rem;
+            overflow: auto;
+            /* ← solo aquí aparece el scroll si se desborda */
+        }
+
+        .medio p {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <aside class="izquierda">izquierdo</aside>
+        <aside class="derecha">derecho</aside>
+
+        <header class="arriba">arriba</header>
+
+        <main class="medio">
+            <strong>medio</strong>
+        </main>
+
+        <footer class="abajo">abajo</footer>
+    </div>
+</body>
+
+</html>
