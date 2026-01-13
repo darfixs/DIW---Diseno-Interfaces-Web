@@ -1,0 +1,352 @@
+/* =========================================================
+   Darfix Phantomsy Station — Estilo Dream Minimal (RED GLO)
+   - Minimal: pocos recuadros, mucho aire
+   - Onírico: gradientes suaves + glow sutil + grain ligero
+   - Accesible: foco visible y buen contraste
+========================================================= */
+
+:root {
+    --bg-0: #07070b;
+    --bg-1: #0b0a16;
+
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.68);
+
+    --line: rgba(255, 255, 255, 0.10);
+
+    /* Acento rojo glo (nostalgia) */
+    --accent: #ff3b5c;
+    --accent_soft: rgba(255, 59, 92, 0.18);
+
+    /* brillo frío secundario (muy leve) */
+    --ice: rgba(108, 243, 255, 0.10);
+
+    --card_bg: rgba(255, 255, 255, 0.02);
+    --card_line: rgba(255, 255, 255, 0.08);
+
+    --radius: 16px;
+    --radius_l: 18px;
+}
+
+/* Base */
+.dps-body {
+    background:
+        radial-gradient(1200px 700px at 12% 12%, var(--accent_soft), transparent 58%),
+        radial-gradient(1000px 700px at 88% 26%, var(--ice), transparent 60%),
+        radial-gradient(900px 600px at 50% 90%, rgba(255, 255, 255, 0.05), transparent 62%),
+        linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* Accesibilidad: skip link */
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 10px;
+    background: #000;
+    color: #fff;
+    padding: 10px 12px;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    z-index: 9999;
+}
+
+.skip-link:focus {
+    left: 10px;
+}
+
+/* Navbar minimal */
+.dps-nav {
+    background: rgba(0, 0, 0, 0.42);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(10px);
+}
+
+.dps-brand {
+    letter-spacing: 0.3px;
+    font-weight: 800;
+}
+
+.dps-sigil {
+    display: inline-block;
+    margin-right: 8px;
+    color: rgba(255, 255, 255, 0.85);
+    opacity: 0.9;
+}
+
+.dps-brand-accent {
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(255, 59, 92, 0.28);
+}
+
+/* Hero limpio */
+.dps-hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+}
+
+.dps-title {
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    text-shadow: 0 0 16px rgba(255, 59, 92, 0.10);
+}
+
+.dps-lead {
+    color: var(--muted);
+    font-size: 1.06rem;
+}
+
+/* resaltado sutil */
+.dps-inline-glow {
+    color: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px dashed rgba(255, 59, 92, 0.40);
+}
+
+/* Grain MUY leve */
+.dps-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+}
+
+/* Canvas */
+.dps-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* Botones: simples */
+.dps-btn {
+    background: linear-gradient(90deg, rgba(255, 59, 92, 0.96), rgba(255, 255, 255, 0.20));
+    border: 1px solid rgba(255, 59, 92, 0.25);
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 800;
+    border-radius: 14px;
+    box-shadow: none;
+}
+
+.dps-btn:hover {
+    filter: brightness(1.05);
+}
+
+.dps-btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 700;
+    border-radius: 14px;
+}
+
+.dps-btn-outline:hover {
+    border-color: rgba(255, 59, 92, 0.35);
+}
+
+/* Texto muted */
+.dps-muted {
+    color: var(--muted);
+}
+
+/* Separadores */
+.dps-hr {
+    border-color: rgba(255, 255, 255, 0.10);
+}
+
+/* Inputs minimal */
+.dps-label {
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: 650;
+}
+
+.dps-input {
+    background: rgba(0, 0, 0, 0.22) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.92) !important;
+    border-radius: 14px;
+}
+
+.dps-input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* Badges sutiles */
+.dps-badge {
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(0, 0, 0, 0.18) !important;
+    color: rgba(255, 255, 255, 0.82) !important;
+}
+
+/* ===========================
+   Cards minimal (muy limpias)
+=========================== */
+.dps-card {
+    height: 100%;
+    background: var(--card_bg);
+    border: 1px solid var(--card_line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.16s ease, border-color 0.16s ease;
+}
+
+.dps-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 59, 92, 0.20);
+}
+
+.dps-cover {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.02) contrast(1.02);
+}
+
+.dps-card-body {
+    padding: 14px;
+}
+
+.dps-card-title {
+    font-weight: 850;
+    margin-bottom: 6px;
+}
+
+.dps-meta {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.92rem;
+}
+
+.dps-audio {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 12px;
+}
+
+/* ===========================
+   Memory Portal (SIMPLE)
+=========================== */
+.dps-memory-portal {
+    position: relative;
+    margin: 0;
+    border-radius: var(--radius_l);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: transparent;
+    padding: 0;
+}
+
+.dps-memory-portal::before {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    border-radius: 22px;
+    background: radial-gradient(520px 320px at 40% 40%, rgba(255, 59, 92, 0.15), transparent 62%);
+    filter: blur(20px);
+    opacity: 0.11;
+    pointer-events: none;
+}
+
+.dps-memory-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    transform: translateY(0px);
+    transition: transform 0.2s ease;
+}
+
+/* hover suuuper sutil */
+.dps-memory-portal:hover .dps-memory-img {
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   Accordion y Modal: limpios
+=========================== */
+.dps-accordion .accordion-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.dps-accordion .accordion-button {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.90);
+    font-weight: 750;
+}
+
+.dps-accordion .accordion-body {
+    color: rgba(255, 255, 255, 0.74);
+}
+
+.dps-modal {
+    background: rgba(10, 8, 22, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text);
+    border-radius: 18px;
+}
+
+/* Toast */
+.dps-toast {
+    background: rgba(10, 8, 22, 0.92);
+    color: rgba(255, 255, 255, 0.90);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+}
+
+/* Offcanvas */
+.dps-offcanvas {
+    background: rgba(10, 8, 22, 0.96);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+/* Sticky panel (si lo usas) */
+.dps-sticky {
+    top: 92px;
+}
+
+/* ===========================
+   Animación “dream” sutil
+=========================== */
+@keyframes dps_pulse {
+    0% {
+        opacity: 0.06;
+    }
+
+    50% {
+        opacity: 0.12;
+    }
+
+    100% {
+        opacity: 0.06;
+    }
+}
+
+.dps-hero::after {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    background:
+        radial-gradient(620px 360px at 30% 40%, rgba(255, 59, 92, 0.10), transparent 62%),
+        radial-gradient(620px 360px at 70% 45%, rgba(255, 255, 255, 0.05), transparent 65%);
+    filter: blur(18px);
+    opacity: 0.08;
+    animation: dps_pulse 7s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Foco visible (accesible) */
+:focus-visible {
+    outline: 2px solid rgba(255, 59, 92, 0.75);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
