@@ -1,371 +1,257 @@
-<!doctype html>
+n<!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Darfix Phantomsy Station — Retro Aqua 2003</title>
+  <meta name="description" content="Catálogo personal de beats con estética cartoon 2003 (azul/verde aura). Escucha previews, filtra y sube beats en Studio Mode." />
 
-    <title>Darfix Phantomsy Station — Beats nostálgicos 2010–2016</title>
-    <meta name="description"
-        content="Darfix Phantomsy Station: catálogo personal de beats con estética soñada y nostalgia 2010–2016. Futuristic glo, pluggnb, chaos beat, ambient y glory ways." />
-
-    <!-- Open Graph básico (opcional pero suma) -->
-    <meta property="og:title" content="Darfix Phantomsy Station" />
-    <meta property="og:description" content="Beats nostálgicos 2010–2016 · mundo de sueño · glow ways" />
-    <meta property="og:type" content="website" />
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Estilos propios -->
-    <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body class="dps-body">
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <!-- NAV -->
-    <nav class="navbar navbar-expand-lg navbar-dark dps-nav sticky-top">
-        <div class="container">
-            <a class="navbar-brand dps-brand" href="index.html" aria-label="Ir al inicio de Darfix Phantomsy Station">
-                <span class="dps-sigil" aria-hidden="true">✦</span>
-                Darfix <span class="dps-brand-accent">Phantomsy</span> Station
-            </a>
+  <nav class="navbar navbar-expand-lg dps-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand dps-brand" href="index.html" aria-label="Inicio">
+        <span class="dps-sigil" aria-hidden="true">✦</span>
+        Darfix <span class="dps-brand-accent">Phantomsy</span> Station
+      </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
-                aria-controls="navMain" aria-expanded="false" aria-label="Abrir menú">
-                <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+        aria-controls="navMain" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item">
+            <button class="btn btn-sm dps-btn-outline mt-2 mt-lg-0" type="button" data-bs-toggle="modal" data-bs-target="#modalLicencias">
+              Licencias
             </button>
-
-            <div class="collapse navbar-collapse" id="navMain">
-                <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
-                    <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                    <li class="nav-item">
-                        <button class="btn btn-sm dps-btn-outline mt-2 mt-lg-0" type="button" data-bs-toggle="modal"
-                            data-bs-target="#modalLicencias">
-                            Licencias
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO + CANVAS -->
-    <header class="dps-hero dps-hero-memory">
-        <!-- Canvas de partículas (sueño) -->
-        <canvas id="dreamCanvas" class="dps-canvas" aria-hidden="true"></canvas>
-
-        <div class="container py-5">
-            <div class="row align-items-center g-4">
-                <div class="col-12 col-lg-6">
-                    <h1 class="dps-title mb-3">Darfix Phantomsy Station</h1>
-                    <p class="dps-lead mb-4">
-                        Beats melódicos con nostalgia 2010–2016. Un mundo de sueño:
-                        <span class="dps-inline-glow">futuristic glo</span>,
-                        <span class="dps-inline-glow">pluggnb</span>,
-                        <span class="dps-inline-glow">chaos</span> y
-                        <span class="dps-inline-glow">glory ways</span>.
-                    </p>
-
-                    <div class="d-flex flex-wrap gap-2">
-                        <a class="btn dps-btn" href="catalogo.html">Entrar al catálogo</a>
-                        <a class="btn dps-btn-outline" href="catalogo.html#studioMode">Studio Mode ✧ Subir beat</a>
-                    </div>
-
-                    <div class="mt-4 d-flex flex-wrap gap-2">
-                        <span class="badge rounded-pill text-bg-dark dps-badge">Preview MP3</span>
-                        <span class="badge rounded-pill text-bg-dark dps-badge">Bootstrap + Responsive</span>
-                        <span class="badge rounded-pill text-bg-dark dps-badge">Estética onírica</span>
-                    </div>
-
-                    <p class="small dps-muted mt-3 mb-0">
-                        Tip: navega con TAB. Todo el contenido principal es accesible con teclado.
-                    </p>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                    <figure class="dps-memory-portal"
-                        aria-label="Escena nostálgica con personajes animados de 2010, estilo glow y tono cálido">
-                        <picture>
-                            <img id="memoryImg" src="assets/img/memory-wall.jpg" width="1178" height="601"
-                                class="dps-memory-img"
-                                alt="Escena nostálgica con personajes animados de mi infancia (2010–2016), con luces glow y tono cálido"
-                                loading="lazy" decoding="async">
-                        </picture>
-                        <figcaption class="dps-muted small mt-2">
-                            “Memory Wall” — un portal a la nostalgia que inspira el universo Phantomsy.
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div>
-
-        <div class="dps-grain" aria-hidden="true"></div>
-    </header>
-
-    <main id="contenido" class="container py-5">
-
-        <!-- MANIFESTO / ABOUT -->
-        <section class="mb-5">
-            <div class="row g-4 align-items-stretch">
-                <div class="col-12 col-lg-7">
-                    <div class="dps-simple">
-                        <h2 class="h4 dps-section-title mb-3">Phantomsy Lore ✧</h2>
-                        <p class="dps-muted mb-3">
-                            Darfix Phantomsy Station es una “estación” personal: un lugar donde los beats suenan como
-                            recuerdos.
-                            Melodías que flotan, ambientes que brillan y ritmos que te llevan a 2010–2016.
-                        </p>
-                        <ul class="dps-muted mb-0">
-                            <li>Estilos: Futuristic Glo, PluggnB, Chaos Beat, Ambient, Glory Ways.</li>
-                            <li>Explora el catálogo por filtros y escucha previews.</li>
-                            <li>En Studio Mode puedo subir beats y aparecen al instante.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-5">
-                    <div class="dps-simple">
-                        <h2 class="h5 dps-section-title mb-3">Accesos rápidos</h2>
-                        <div class="d-grid gap-2">
-                            <a class="btn dps-btn" href="catalogo.html">Abrir catálogo</a>
-                            <a class="btn dps-btn-outline" href="catalogo.html#studioMode">Subir un beat</a>
-                            <a class="btn dps-btn-outline" href="#featured">Escuchar destacados</a>
-                        </div>
-                        <hr class="dps-hr">
-                        <p class="small dps-muted mb-0">
-                            Consejo rendimiento: previews de 20–30s, imágenes en WebP y carga diferida.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEATURED BEATS -->
-        <section id="featured" class="mb-5">
-            <div class="d-flex align-items-end justify-content-between mb-3">
-                <h2 class="h4 dps-section-title mb-0">Featured Beats ✦</h2>
-                <a class="small dps-muted text-decoration-none" href="catalogo.html">Ver todo el catálogo →</a>
-            </div>
-
-            <div class="row g-3">
-                <!-- Beat 1 -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <article class="dps-card">
-                        <img class="dps-cover" src="assets/img/cover-01.jpg" alt="Portada del beat Phantom Glow (2013)"
-                            loading="lazy" decoding="async">
-                        <div class="dps-card-body">
-                            <h3 class="h6 dps-card-title">Phantom Glow (2013)</h3>
-                            <div class="dps-meta mb-2">Futuristic Glo</div>
-                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                <span class="badge rounded-pill text-bg-dark dps-badge">BPM: 140</span>
-                                <span class="badge rounded-pill text-bg-dark dps-badge">Key: F minor</span>
-                            </div>
-                            <audio class="dps-audio" controls preload="none" data-dps-audio="1"
-                                aria-label="Preview del beat Phantom Glow (2013)">
-                                <source src="assets/audio/preview-01.mp3" type="audio/mpeg">
-                                Tu navegador no soporta audio.
-                            </audio>
-                            <div class="d-flex flex-wrap gap-2 mt-3">
-                                <a class="btn btn-sm dps-btn" href="beat.html">Ver beat</a>
-                                <a class="btn btn-sm dps-btn-outline" href="contacto.html">Pedir licencia</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Beat 2 -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <article class="dps-card">
-                        <img class="dps-cover" src="assets/img/cover-02.jpg" alt="Portada del beat Velvet Chaos (2015)"
-                            loading="lazy" decoding="async">
-                        <div class="dps-card-body">
-                            <h3 class="h6 dps-card-title">Velvet Chaos (2015)</h3>
-                            <div class="dps-meta mb-2">Chaos Beat</div>
-                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                <span class="badge rounded-pill text-bg-dark dps-badge">BPM: 156</span>
-                                <span class="badge rounded-pill text-bg-dark dps-badge">Key: C# minor</span>
-                            </div>
-                            <audio class="dps-audio" controls preload="none" data-dps-audio="1"
-                                aria-label="Preview del beat Velvet Chaos (2015)">
-                                <source src="assets/audio/preview-02.mp3" type="audio/mpeg">
-                                Tu navegador no soporta audio.
-                            </audio>
-                            <div class="d-flex flex-wrap gap-2 mt-3">
-                                <a class="btn btn-sm dps-btn" href="beat.html">Ver beat</a>
-                                <a class="btn btn-sm dps-btn-outline" href="contacto.html">Pedir licencia</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Beat 3 -->
-                <div class="col-12 col-md-6 col-xl-4">
-                    <article class="dps-card">
-                        <img class="dps-cover" src="assets/img/cover-03.jpg" alt="Portada del beat Glory Ways (2012)"
-                            loading="lazy" decoding="async">
-                        <div class="dps-card-body">
-                            <h3 class="h6 dps-card-title">Glory Ways (2012)</h3>
-                            <div class="dps-meta mb-2">Glory Ways</div>
-                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                <span class="badge rounded-pill text-bg-dark dps-badge">BPM: 132</span>
-                                <span class="badge rounded-pill text-bg-dark dps-badge">Key: A minor</span>
-                            </div>
-                            <audio class="dps-audio" controls preload="none" data-dps-audio="1"
-                                aria-label="Preview del beat Glory Ways (2012)">
-                                <source src="assets/audio/preview-03.mp3" type="audio/mpeg">
-                                Tu navegador no soporta audio.
-                            </audio>
-                            <div class="d-flex flex-wrap gap-2 mt-3">
-                                <a class="btn btn-sm dps-btn" href="beat.html">Ver beat</a>
-                                <a class="btn btn-sm dps-btn-outline" href="contacto.html">Pedir licencia</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <p class="small dps-muted mt-3 mb-0">
-                Nota: reemplaza las portadas `cover-01/02/03.jpg` por tus imágenes optimizadas (WebP recomendado) y los
-                MP3 por tus previews.
-            </p>
-        </section>
-
-        <!-- CAROUSEL ERAS -->
-        <section class="mb-5">
-            <h2 class="h4 dps-section-title mb-3">Eras 2010–2016 ✧</h2>
-            <div id="erasCarousel" class="carousel slide" data-bs-ride="carousel"
-                aria-label="Carrusel de eras musicales 2010 a 2016">
-
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#erasCarousel" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Era 2010–2012"></button>
-                    <button type="button" data-bs-target="#erasCarousel" data-bs-slide-to="1"
-                        aria-label="Era 2013–2014"></button>
-                    <button type="button" data-bs-target="#erasCarousel" data-bs-slide-to="2"
-                        aria-label="Era 2015–2016"></button>
-                </div>
-
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="p-4">
-                            <h3 class="h5 mb-2">2010–2012 — Dreamy beginnings</h3>
-                            <p class="dps-muted mb-0">
-                                Melodías limpias, pads suaves, nostalgia brillante. El inicio de la estética “glory
-                                ways”.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="p-4">
-                            <h3 class="h5 mb-2">2013–2014 — Futuristic glow</h3>
-                            <p class="dps-muted mb-0">
-                                Sintetizadores más luminosos, ritmos con rebote, texturas oníricas y sensación de “mundo
-                                alterno”.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="p-4">
-                            <h3 class="h5 mb-2">2015–2016 — Chaos + ambient nostalgia</h3>
-                            <p class="dps-muted mb-0">
-                                Contrastes, atmósferas más densas, armonías melódicas y energía “chaos beat” sin perder
-                                el sueño.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#erasCarousel" data-bs-slide="prev"
-                    aria-label="Anterior">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#erasCarousel" data-bs-slide="next"
-                    aria-label="Siguiente">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                </button>
-            </div>
-        </section>
-
-        <!-- CTA FINAL -->
-        <section class="mb-4">
-            <div class="dps-panel">
-                <div class="row align-items-center g-3">
-                    <div class="col-12 col-lg-8">
-                        <h2 class="h4 dps-section-title mb-2">Entra al catálogo y escucha el universo Phantomsy</h2>
-                        <p class="dps-muted mb-0">
-                            Filtra por estilo, escucha previews y si te encaja el vibe, pide licencia o abre el enlace
-                            de compra.
-                        </p>
-                    </div>
-                    <div class="col-12 col-lg-4 d-flex gap-2 justify-content-lg-end">
-                        <a class="btn dps-btn w-100 w-lg-auto" href="catalogo.html">Abrir catálogo</a>
-                        <a class="btn dps-btn-outline w-100 w-lg-auto" href="contacto.html">Contacto</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="container pb-5">
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 pt-4 border-top"
-            style="border-color: rgba(255,255,255,0.12) !important;">
-            <p class="small dps-muted mb-0">© <span id="year"></span> Darfix Phantomsy Station · “glory ways”</p>
-            <div class="d-flex gap-2">
-                <a class="small dps-muted text-decoration-none" href="contacto.html">Contacto</a>
-                <a class="small dps-muted text-decoration-none" href="catalogo.html">Catálogo</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- MODAL LICENCIAS -->
-    <div class="modal fade" id="modalLicencias" tabindex="-1" aria-labelledby="modalLicenciasLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content dps-modal">
-                <div class="modal-header">
-                    <h2 class="modal-title h5" id="modalLicenciasLabel">Licencias — Darfix Phantomsy Station</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="dps-muted">
-                        Este apartado es orientativo. Puedes adaptarlo a tu modelo real (BeatStars, licencias propias,
-                        etc.).
-                    </p>
-                    <ul class="mb-0">
-                        <li><strong>Basic:</strong> uso no exclusivo, ideal para demos/redes.</li>
-                        <li><strong>Premium:</strong> mayor alcance de streams y monetización.</li>
-                        <li><strong>Exclusive:</strong> venta exclusiva del beat.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn dps-btn-outline" type="button" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Bootstrap bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <header class="dps-hero">
+    <div class="dps-aura" aria-hidden="true"></div>
+    <div class="dps-crt" aria-hidden="true"></div>
+    <div class="dps-pixels" aria-hidden="true"></div>
 
-    <!-- JS propio -->
-    <script src="js/main.js"></script>
+    <div class="container py-5">
+      <div class="row g-4 align-items-center">
+        <div class="col-12 col-lg-6">
+          <div class="dps-tag mb-3">
+            <span class="dps-dot" aria-hidden="true"></span>
+            RETRO AQUA · 2003 CORE · CARTOON AURA
+          </div>
 
-    <!-- Mini script solo para el año (puedes moverlo a main.js si quieres) -->
-    <script>
-        (function () {
-            var y = document.getElementById('year');
-            if (y) y.textContent = new Date().getFullYear();
-        })();
-    </script>
+          <h1 class="dps-title mb-3">Beats en una estación retro</h1>
+          <p class="dps-lead mb-4">
+            Un catálogo personal inspirado en páginas antiguas (2003) de videojuegos:
+            azul/verde, aura, textura CRT… pero con beats nostálgicos 2010–2016.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn dps-btn" href="catalogo.html">Entrar al catálogo</a>
+            <a class="btn dps-btn-outline" href="catalogo.html#studioMode">Studio Mode</a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <picture>
+            <source srcset="assets/img/memory-wall.webp" type="image/webp">
+            <img
+              src="assets/img/memory-wall.jpg"
+              width="1178"
+              height="601"
+              class="dps-hero-img"
+              alt="Escena nostálgica con personajes animados de mi infancia, con filtro cálido"
+              loading="lazy"
+              decoding="async">
+          </picture>
+          <p class="dps-muted small mt-2 mb-0">
+            “Memory Wall” como portada nostálgica.
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="container py-5">
+
+    <!-- Carousel (criterio: componente Bootstrap) -->
+    <section class="mb-5">
+      <h2 class="h4 dps-section-title mb-3">Eras (2010–2016)</h2>
+      <div id="erasCarousel" class="carousel slide dps-box" data-bs-ride="carousel" aria-label="Carrusel eras 2010–2016">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="p-2">
+              <h3 class="h6 mb-1" style="font-weight:900;">2010–2012</h3>
+              <p class="dps-muted mb-0">Ambientes suaves + melodías limpias.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="p-2">
+              <h3 class="h6 mb-1" style="font-weight:900;">2013–2014</h3>
+              <p class="dps-muted mb-0">Brillo futurista + nostalgia digital.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="p-2">
+              <h3 class="h6 mb-1" style="font-weight:900;">2015–2016</h3>
+              <p class="dps-muted mb-0">Energía “chaos” sin perder el sueño.</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#erasCarousel" data-bs-slide="prev" aria-label="Anterior">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#erasCarousel" data-bs-slide="next" aria-label="Siguiente">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Destacados (multimedia audio) -->
+    <section class="mb-5" aria-label="Beats destacados">
+      <div class="d-flex justify-content-between align-items-end mb-3">
+        <h2 class="h4 dps-section-title mb-0">Destacados</h2>
+        <a class="small dps-muted text-decoration-none" href="catalogo.html">Ver todos →</a>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="dps-card">
+            <img class="dps-cover" src="assets/img/cover-01.jpg" alt="Portada Aqua Aura (2003)" loading="lazy" decoding="async">
+            <div class="dps-card-body">
+              <h3 class="h6 dps-card-title">Aqua Aura (2003)</h3>
+              <div class="dps-meta mb-2">Ambient</div>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="badge rounded-pill text-bg-dark dps-badge">BPM: 124</span>
+                <span class="badge rounded-pill text-bg-dark dps-badge">Key: D minor</span>
+              </div>
+              <audio class="dps-audio" controls preload="none" data-dps-audio="1">
+                <source src="assets/audio/preview-01.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="dps-card">
+            <img class="dps-cover" src="assets/img/cover-02.jpg" alt="Portada Neon SavePoint (2014)" loading="lazy" decoding="async">
+            <div class="dps-card-body">
+              <h3 class="h6 dps-card-title">Neon SavePoint (2014)</h3>
+              <div class="dps-meta mb-2">PluggnB</div>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="badge rounded-pill text-bg-dark dps-badge">BPM: 148</span>
+                <span class="badge rounded-pill text-bg-dark dps-badge">Key: E minor</span>
+              </div>
+              <audio class="dps-audio" controls preload="none" data-dps-audio="1">
+                <source src="assets/audio/preview-02.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-xl-4">
+          <article class="dps-card">
+            <img class="dps-cover" src="assets/img/cover-03.jpg" alt="Portada Glo Cartridge (2016)" loading="lazy" decoding="async">
+            <div class="dps-card-body">
+              <h3 class="h6 dps-card-title">Glo Cartridge (2016)</h3>
+              <div class="dps-meta mb-2">Futuristic Glo</div>
+              <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="badge rounded-pill text-bg-dark dps-badge">BPM: 140</span>
+                <span class="badge rounded-pill text-bg-dark dps-badge">Key: F minor</span>
+              </div>
+              <audio class="dps-audio" controls preload="none" data-dps-audio="1">
+                <source src="assets/audio/preview-03.mp3" type="audio/mpeg">
+              </audio>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ (accordion) -->
+    <section class="mb-4">
+      <h2 class="h4 dps-section-title mb-3">FAQ</h2>
+      <div class="accordion dps-accordion" id="faqHome">
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="q1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1"
+              aria-expanded="false" aria-controls="a1">
+              ¿Qué es un preview?
+            </button>
+          </h3>
+          <div id="a1" class="accordion-collapse collapse" aria-labelledby="q1" data-bs-parent="#faqHome">
+            <div class="accordion-body">
+              Un fragmento del beat para escuchar el vibe. La licencia define el uso final.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h3 class="accordion-header" id="q2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2"
+              aria-expanded="false" aria-controls="a2">
+              ¿Cómo sube beats el autor?
+            </button>
+          </h3>
+          <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faqHome">
+            <div class="accordion-body">
+              En la página Catálogo hay un Studio Mode: formulario + guardado en LocalStorage.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container dps-footer">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p class="small dps-muted mb-0">© <span id="year"></span> Darfix Phantomsy Station</p>
+      <div class="d-flex gap-3">
+        <a class="small dps-muted text-decoration-none" href="catalogo.html">Catálogo</a>
+        <a class="small dps-muted text-decoration-none" href="contacto.html">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal licencias -->
+  <div class="modal fade" id="modalLicencias" tabindex="-1" aria-labelledby="modalLicenciasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content dps-modal">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="modalLicenciasLabel">Licencias (resumen)</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="mb-0">
+            <li><strong>Basic:</strong> uso no exclusivo (demos/redes).</li>
+            <li><strong>Premium:</strong> monetización y mayor alcance.</li>
+            <li><strong>Exclusive:</strong> venta exclusiva.</li>
+          </ul>
+          <p class="dps-muted small mt-3 mb-0">Texto orientativo para el proyecto DIW.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn dps-btn-outline" type="button" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
-
 </html>
