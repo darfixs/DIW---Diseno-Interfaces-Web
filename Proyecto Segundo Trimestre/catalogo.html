@@ -2,381 +2,302 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo — Darfix Phantomsy Station</title>
+  <meta name="description"
+    content="Catálogo de beats: filtros, búsqueda, previews y Studio Mode para subir beats. Estilo retro cartoon 2003 aqua." />
 
-    <title>Catálogo — Darfix Phantomsy Station</title>
-    <meta name="description"
-        content="Catálogo personal de beats de Darfix Phantomsy Station. Filtra por estilo, escucha previews y explora instrumentales nostálgicas 2010–2016." />
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Estilos propios -->
-    <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body class="dps-body">
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <!-- NAV -->
-    <nav class="navbar navbar-expand-lg navbar-dark dps-nav sticky-top">
-        <div class="container">
-            <a class="navbar-brand dps-brand" href="index.html" aria-label="Ir al inicio de Darfix Phantomsy Station">
-                <span class="dps-sigil" aria-hidden="true">✦</span>
-                Darfix <span class="dps-brand-accent">Phantomsy</span> Station
-            </a>
+  <nav class="navbar navbar-expand-lg dps-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand dps-brand" href="index.html">
+        <span class="dps-sigil" aria-hidden="true">✦</span>
+        Darfix <span class="dps-brand-accent">Phantomsy</span> Station
+      </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
-                aria-controls="navMain" aria-expanded="false" aria-label="Abrir menú">
-                <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+        aria-controls="navMain" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" href="catalogo.html" aria-current="page">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+          <li class="nav-item">
+            <button class="btn btn-sm dps-btn-outline mt-2 mt-lg-0" type="button" data-bs-toggle="modal"
+              data-bs-target="#modalLicencias">
+              Licencias
             </button>
-
-            <div class="collapse navbar-collapse" id="navMain">
-                <ul class="navbar-nav ms-auto gap-lg-2">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="catalogo.html"
-                            aria-current="page">Catálogo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
-                    <li class="nav-item">
-                        <button class="btn btn-sm dps-btn-outline mt-2 mt-lg-0" type="button" data-bs-toggle="modal"
-                            data-bs-target="#modalLicencias">
-                            Licencias
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO -->
-    <header class="dps-hero">
-        <div class="container py-5">
-            <div class="row align-items-center g-4">
-                <div class="col-12 col-lg-7">
-                    <h1 class="dps-title mb-3">Catálogo de Beats</h1>
-                    <p class="dps-lead mb-4">
-                        Sonidos melódicos con nostalgia 2010–2016: <span class="dps-inline-glow">futuristic glo</span>,
-                        <span class="dps-inline-glow">pluggnb</span>, <span class="dps-inline-glow">chaos</span> y
-                        <span class="dps-inline-glow">glory ways</span>.
-                    </p>
-
-                    <div class="d-flex flex-wrap gap-2">
-                        <button class="btn dps-btn" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasFiltros" aria-controls="offcanvasFiltros">
-                            Filtros (móvil)
-                        </button>
-
-                        <button id="btnStudioScroll" class="btn dps-btn-outline" type="button">
-                            Studio Mode ✧ Subir beat
-                        </button>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-5">
-                    <div class="dps-panel">
-                        <p class="mb-2 dps-panel-title">Estado del catálogo</p>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="badge rounded-pill text-bg-dark dps-badge" id="contadorBeats">0 beats</span>
-                            <span class="badge rounded-pill text-bg-dark dps-badge" id="contadorEstilos">0
-                                estilos</span>
-                            <span class="badge rounded-pill text-bg-dark dps-badge">Preview MP3</span>
-                        </div>
-
-                        <hr class="dps-hr" />
-
-                        <div class="d-flex flex-wrap align-items-center gap-2">
-                            <label class="dps-label" for="buscador">Buscar:</label>
-                            <input id="buscador" class="form-control form-control-sm dps-input" type="search"
-                                placeholder="Ej: glo, ambient, 140 bpm..." aria-label="Buscar beats">
-                            <button id="btnReset" class="btn btn-sm dps-btn-outline" type="button">Reset</button>
-                        </div>
-
-                        <p class="small mt-3 mb-0 dps-muted">
-                            Tip: usa TAB para navegar. Todo el catálogo es accesible con teclado.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="dps-grain" aria-hidden="true"></div>
-    </header>
-
-    <main id="contenido" class="container py-5">
-        <div class="row g-4">
-            <!-- FILTROS (desktop) -->
-            <aside class="col-12 col-lg-3">
-                <div class="dps-panel sticky-lg-top dps-sticky">
-                    <h2 class="h5 mb-3 dps-section-title">Filtros</h2>
-
-                    <div class="mb-3">
-                        <label class="dps-label" for="filtroEstilo">Estilo</label>
-                        <select id="filtroEstilo" class="form-select dps-input">
-                            <option value="all">Todos</option>
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="dps-label" for="filtroBpmMin">BPM mínimo</label>
-                        <input id="filtroBpmMin" class="form-control dps-input" type="number" min="0"
-                            placeholder="Ej: 120">
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="dps-label" for="filtroBpmMax">BPM máximo</label>
-                        <input id="filtroBpmMax" class="form-control dps-input" type="number" min="0"
-                            placeholder="Ej: 170">
-                    </div>
-
-                    <div class="d-flex gap-2">
-                        <button id="btnAplicarFiltros" class="btn dps-btn w-100" type="button">Aplicar</button>
-                        <button id="btnLimpiarFiltros" class="btn dps-btn-outline w-100" type="button">Limpiar</button>
-                    </div>
-
-                    <hr class="dps-hr">
-
-                    <div class="small dps-muted">
-                        <div class="mb-1">✔ Solo un beat suena a la vez</div>
-                        <div class="mb-1">✔ Badges con BPM y Key</div>
-                        <div>✔ Filtro por estilo</div>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- LISTADO -->
-            <section class="col-12 col-lg-9">
-                <div class="d-flex align-items-end justify-content-between mb-3">
-                    <h2 class="h4 dps-section-title mb-0">Beats</h2>
-                    <span class="small dps-muted" id="resultadoInfo">Mostrando 0 resultados</span>
-                </div>
-
-                <div id="gridBeats" class="row g-3">
-                    <!-- Cards se generan por JS -->
-                </div>
-
-                <!-- FAQ / ACCORDION -->
-                <div class="mt-5">
-                    <h2 class="h4 dps-section-title mb-3">FAQ — Glory Ways</h2>
-                    <div class="accordion dps-accordion" id="faqCatalogo">
-                        <div class="accordion-item">
-                            <h3 class="accordion-header" id="faq1h">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
-                                    ¿Qué es un “preview”?
-                                </button>
-                            </h3>
-                            <div id="faq1" class="accordion-collapse collapse" aria-labelledby="faq1h"
-                                data-bs-parent="#faqCatalogo">
-                                <div class="accordion-body">
-                                    Es un fragmento del beat pensado para escuchar el vibe antes de comprar o descargar
-                                    el archivo completo.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header" id="faq2h">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
-                                    ¿Puedo usarlo para YouTube / Spotify?
-                                </button>
-                            </h3>
-                            <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2h"
-                                data-bs-parent="#faqCatalogo">
-                                <div class="accordion-body">
-                                    Depende de la licencia. En “Licencias” verás una explicación general y en la ficha
-                                    de beat puedes
-                                    añadir condiciones específicas.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header" id="faq3h">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
-                                    ¿Cómo sube beats el autor?
-                                </button>
-                            </h3>
-                            <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3h"
-                                data-bs-parent="#faqCatalogo">
-                                <div class="accordion-body">
-                                    Con “Studio Mode”: un formulario donde se añade el beat (título, estilo, BPM, key,
-                                    portada y preview),
-                                    guardándose en el navegador para que aparezca inmediatamente en el catálogo.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- STUDIO MODE -->
-                <div id="studioMode" class="mt-5">
-                    <div class="dps-panel">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                            <h2 class="h4 dps-section-title mb-0">Studio Mode ✧ Subir beat</h2>
-                            <div class="d-flex gap-2">
-                                <button id="btnExportar" class="btn btn-sm dps-btn-outline" type="button"
-                                    title="Exportar JSON">
-                                    Exportar
-                                </button>
-                                <button id="btnBorrarTodo" class="btn btn-sm btn-danger" type="button"
-                                    title="Borrar catálogo local">
-                                    Borrar todo
-                                </button>
-                            </div>
-                        </div>
-
-                        <p class="dps-muted small mt-2">
-                            Esto es un panel personal: los beats se guardan en tu navegador (LocalStorage) y se
-                            renderizan automáticamente.
-                        </p>
-
-                        <form id="formBeat" class="row g-3 mt-1" novalidate>
-                            <div class="col-12 col-md-6">
-                                <label for="titulo" class="form-label dps-label">Título del beat</label>
-                                <input id="titulo" class="form-control dps-input" type="text" required maxlength="60"
-                                    placeholder="Ej: Phantom Glow (2013)">
-                                <div class="invalid-feedback">Escribe un título.</div>
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <label for="estilo" class="form-label dps-label">Estilo</label>
-                                <select id="estilo" class="form-select dps-input" required>
-                                    <option value="" selected disabled>Selecciona un estilo</option>
-                                    <option>Futuristic Glo</option>
-                                    <option>PluggnB</option>
-                                    <option>Chaos Beat</option>
-                                    <option>Ambient</option>
-                                    <option>Glory Ways</option>
-                                </select>
-                                <div class="invalid-feedback">Selecciona un estilo.</div>
-                            </div>
-
-                            <div class="col-6 col-md-3">
-                                <label for="bpm" class="form-label dps-label">BPM</label>
-                                <input id="bpm" class="form-control dps-input" type="number" min="40" max="220" required
-                                    placeholder="140">
-                                <div class="invalid-feedback">BPM válido (40–220).</div>
-                            </div>
-
-                            <div class="col-6 col-md-3">
-                                <label for="key" class="form-label dps-label">Key</label>
-                                <input id="key" class="form-control dps-input" type="text" required maxlength="12"
-                                    placeholder="F minor">
-                                <div class="invalid-feedback">Escribe la tonalidad (ej: F minor).</div>
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <label for="enlace" class="form-label dps-label">Enlace (BeatStars / YouTube /
-                                    Drive)</label>
-                                <input id="enlace" class="form-control dps-input" type="url" placeholder="https://...">
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <label for="portada" class="form-label dps-label">Portada (imagen)</label>
-                                <input id="portada" class="form-control dps-input" type="file" accept="image/*"
-                                    required>
-                                <div class="invalid-feedback">Selecciona una portada.</div>
-                            </div>
-
-                            <div class="col-12 col-md-6">
-                                <label for="audio" class="form-label dps-label">Preview (MP3)</label>
-                                <input id="audio" class="form-control dps-input" type="file"
-                                    accept="audio/mpeg,audio/mp3" required>
-                                <div class="invalid-feedback">Selecciona un MP3 preview.</div>
-                            </div>
-
-                            <div class="col-12 d-flex flex-wrap gap-2 align-items-center">
-                                <button class="btn dps-btn" type="submit">Guardar beat</button>
-                                <button id="btnDemo" class="btn dps-btn-outline" type="button">Añadir demo</button>
-                                <span class="small dps-muted">Consejo: previews de 20–30s para que cargue rápido.</span>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-            </section>
-        </div>
-    </main>
-
-    <!-- MODAL LICENCIAS -->
-    <div class="modal fade" id="modalLicencias" tabindex="-1" aria-labelledby="modalLicenciasLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content dps-modal">
-                <div class="modal-header">
-                    <h2 class="modal-title h5" id="modalLicenciasLabel">Licencias — Darfix Phantomsy Station</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Cerrar"></button>
-                </div>
-                <div class="modal-body">
-                    <p class="dps-muted">
-                        Este apartado es orientativo. En tu proyecto puedes adaptarlo a tu modelo real (BeatStars,
-                        licencias propias, etc.).
-                    </p>
-                    <ul class="mb-0">
-                        <li><strong>Basic:</strong> uso no exclusivo, ideal para demos/redes.</li>
-                        <li><strong>Premium:</strong> mayor alcance de streams y monetización.</li>
-                        <li><strong>Exclusive:</strong> venta exclusiva del beat.</li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn dps-btn-outline" type="button" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-            </div>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- TOAST -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="toastOk" class="toast dps-toast" role="status" aria-live="polite" aria-atomic="true">
-            <div class="toast-body">
-                <span id="toastMsg">Acción completada.</span>
-            </div>
+  <header class="dps-hero">
+    <div class="dps-aura" aria-hidden="true"></div>
+    <div class="dps-crt" aria-hidden="true"></div>
+    <div class="dps-pixels" aria-hidden="true"></div>
+
+    <div class="container py-4">
+      <div class="row g-3 align-items-end">
+        <div class="col-12 col-lg-8">
+          <h1 class="dps-title mb-2">Catálogo</h1>
+          <p class="dps-lead mb-0">Filtro + búsqueda + previews. Studio Mode para subir beats.</p>
         </div>
+        <div class="col-12 col-lg-4 d-flex gap-2 justify-content-lg-end">
+          <button class="btn dps-btn-outline" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasFiltros" aria-controls="offcanvasFiltros">Filtros (móvil)</button>
+          <a class="btn dps-btn" href="#studioMode">Studio Mode</a>
+        </div>
+      </div>
+
+      <div class="mt-3 d-flex gap-2 flex-wrap">
+        <span class="badge rounded-pill text-bg-dark dps-badge" id="contadorBeats">0 beats</span>
+        <span class="badge rounded-pill text-bg-dark dps-badge" id="contadorEstilos">0 estilos</span>
+      </div>
     </div>
+  </header>
 
-    <!-- OFFCANVAS FILTROS (móvil) -->
-    <div class="offcanvas offcanvas-start dps-offcanvas" tabindex="-1" id="offcanvasFiltros"
-        aria-labelledby="offcanvasFiltrosLabel">
-        <div class="offcanvas-header">
-            <h2 class="offcanvas-title h5" id="offcanvasFiltrosLabel">Filtros</h2>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                aria-label="Cerrar"></button>
+  <main id="contenido" class="container py-5">
+    <div class="row g-4">
+
+      <!-- Filtros desktop -->
+      <aside class="col-12 col-lg-3">
+        <div class="dps-box">
+          <h2 class="h5 dps-section-title mb-3">Filtros</h2>
+
+          <div class="mb-3">
+            <label class="dps-label" for="buscador">Buscar</label>
+            <input id="buscador" class="form-control dps-input" type="search" placeholder="Ej: glo, 140, minor..."
+              aria-label="Buscar beats">
+          </div>
+
+          <div class="mb-3">
+            <label class="dps-label" for="filtroEstilo">Estilo</label>
+            <select id="filtroEstilo" class="form-select dps-input">
+              <option value="all">Todos</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="dps-label" for="filtroBpmMin">BPM mínimo</label>
+            <input id="filtroBpmMin" class="form-control dps-input" type="number" min="0" placeholder="120">
+          </div>
+
+          <div class="mb-3">
+            <label class="dps-label" for="filtroBpmMax">BPM máximo</label>
+            <input id="filtroBpmMax" class="form-control dps-input" type="number" min="0" placeholder="170">
+          </div>
+
+          <div class="d-flex gap-2">
+            <button id="btnAplicarFiltros" class="btn dps-btn w-100" type="button">Aplicar</button>
+            <button id="btnLimpiarFiltros" class="btn dps-btn-outline w-100" type="button">Limpiar</button>
+          </div>
+
+          <button id="btnReset" class="btn dps-btn-outline w-100 mt-2" type="button">Reset</button>
         </div>
-        <div class="offcanvas-body">
-            <p class="small dps-muted">Usa los filtros del panel lateral (en escritorio) o estos (en móvil).</p>
+      </aside>
 
-            <div class="mb-3">
-                <label class="dps-label" for="mFiltroEstilo">Estilo</label>
-                <select id="mFiltroEstilo" class="form-select dps-input">
-                    <option value="all">Todos</option>
+      <!-- Grid -->
+      <section class="col-12 col-lg-9">
+        <div class="d-flex justify-content-between align-items-end mb-3">
+          <h2 class="h5 dps-section-title mb-0">Beats</h2>
+          <span class="small dps-muted" id="resultadoInfo">Mostrando 0 resultados</span>
+        </div>
+
+        <div id="gridBeats" class="row g-3"></div>
+
+        <div class="mt-5 dps-box">
+          <h2 class="h5 dps-section-title mb-3">FAQ</h2>
+          <div class="accordion dps-accordion" id="faqCatalogo">
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="f1h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f1"
+                  aria-expanded="false" aria-controls="f1">
+                  ¿Dónde se guardan los beats subidos?
+                </button>
+              </h3>
+              <div id="f1" class="accordion-collapse collapse" aria-labelledby="f1h" data-bs-parent="#faqCatalogo">
+                <div class="accordion-body">
+                  En el navegador (LocalStorage). Ideal para un proyecto DIW sin backend.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="f2h">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#f2"
+                  aria-expanded="false" aria-controls="f2">
+                  ¿Por qué solo un audio suena a la vez?
+                </button>
+              </h3>
+              <div id="f2" class="accordion-collapse collapse" aria-labelledby="f2h" data-bs-parent="#faqCatalogo">
+                <div class="accordion-body">
+                  Para mejorar usabilidad: evita mezclas involuntarias mientras exploras.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Studio Mode -->
+        <section id="studioMode" class="mt-5">
+          <div class="dps-box">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-2">
+              <h2 class="h4 dps-section-title mb-0">Studio Mode</h2>
+              <div class="d-flex gap-2 flex-wrap">
+                <button id="btnExportar" class="btn dps-btn-outline" type="button">Exportar</button>
+                <button id="btnBorrarTodo" class="btn dps-btn-outline" type="button">Borrar todo</button>
+              </div>
+            </div>
+
+            <p class="dps-muted small mb-3">Añade beats y aparecen en el catálogo automáticamente.</p>
+
+            <form id="formBeat" class="row g-3" novalidate>
+              <div class="col-12 col-md-6">
+                <label for="titulo" class="form-label dps-label">Título</label>
+                <input id="titulo" class="form-control dps-input" type="text" required maxlength="60"
+                  placeholder="Ej: Retro Menu Theme">
+                <div class="invalid-feedback">Escribe un título.</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="estilo" class="form-label dps-label">Estilo</label>
+                <select id="estilo" class="form-select dps-input" required>
+                  <option value="" selected disabled>Selecciona</option>
+                  <option>Futuristic Glo</option>
+                  <option>PluggnB</option>
+                  <option>Chaos Beat</option>
+                  <option>Ambient</option>
+                  <option>Glory Ways</option>
                 </select>
-            </div>
+                <div class="invalid-feedback">Selecciona un estilo.</div>
+              </div>
 
-            <div class="mb-3">
-                <label class="dps-label" for="mBpmMin">BPM mínimo</label>
-                <input id="mBpmMin" class="form-control dps-input" type="number" min="0" placeholder="Ej: 120">
-            </div>
+              <div class="col-6 col-md-3">
+                <label for="bpm" class="form-label dps-label">BPM</label>
+                <input id="bpm" class="form-control dps-input" type="number" min="40" max="220" required
+                  placeholder="140">
+                <div class="invalid-feedback">BPM válido (40–220).</div>
+              </div>
 
-            <div class="mb-3">
-                <label class="dps-label" for="mBpmMax">BPM máximo</label>
-                <input id="mBpmMax" class="form-control dps-input" type="number" min="0" placeholder="Ej: 170">
-            </div>
+              <div class="col-6 col-md-3">
+                <label for="key" class="form-label dps-label">Key</label>
+                <input id="key" class="form-control dps-input" type="text" required maxlength="12"
+                  placeholder="F minor">
+                <div class="invalid-feedback">Indica la tonalidad.</div>
+              </div>
 
-            <div class="d-flex gap-2">
-                <button id="mAplicar" class="btn dps-btn w-100" type="button">Aplicar</button>
-                <button id="mLimpiar" class="btn dps-btn-outline w-100" type="button">Limpiar</button>
-            </div>
-        </div>
+              <div class="col-12 col-md-6">
+                <label for="enlace" class="form-label dps-label">Enlace (opcional)</label>
+                <input id="enlace" class="form-control dps-input" type="url" placeholder="https://...">
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="portada" class="form-label dps-label">Portada</label>
+                <input id="portada" class="form-control dps-input" type="file" accept="image/*" required>
+                <div class="invalid-feedback">Selecciona una imagen.</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="audio" class="form-label dps-label">Preview MP3</label>
+                <input id="audio" class="form-control dps-input" type="file" accept="audio/mpeg,audio/mp3" required>
+                <div class="invalid-feedback">Selecciona un MP3.</div>
+              </div>
+
+              <div class="col-12 d-flex gap-2 flex-wrap align-items-center">
+                <button class="btn dps-btn" type="submit">Guardar</button>
+                <button id="btnDemo" class="btn dps-btn-outline" type="button">Demo</button>
+                <span class="small dps-muted">Sugerencia: previews de 20–30s.</span>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </section>
     </div>
+  </main>
 
-    <!-- Bootstrap bundle (incluye Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toastOk" class="toast dps-toast" role="status" aria-live="polite" aria-atomic="true">
+      <div class="toast-body"><span id="toastMsg">OK</span></div>
+    </div>
+  </div>
 
-    <!-- JS propio -->
-    <script src="js/main.js"></script>
+  <!-- Offcanvas filtros -->
+  <div class="offcanvas offcanvas-start dps-offcanvas" tabindex="-1" id="offcanvasFiltros"
+    aria-labelledby="offcanvasFiltrosLabel">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title h5" id="offcanvasFiltrosLabel">Filtros</h2>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mb-3">
+        <label class="dps-label" for="mFiltroEstilo">Estilo</label>
+        <select id="mFiltroEstilo" class="form-select dps-input">
+          <option value="all">Todos</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="dps-label" for="mBpmMin">BPM mínimo</label>
+        <input id="mBpmMin" class="form-control dps-input" type="number" min="0" placeholder="120">
+      </div>
+
+      <div class="mb-3">
+        <label class="dps-label" for="mBpmMax">BPM máximo</label>
+        <input id="mBpmMax" class="form-control dps-input" type="number" min="0" placeholder="170">
+      </div>
+
+      <div class="d-flex gap-2">
+        <button id="mAplicar" class="btn dps-btn w-100" type="button">Aplicar</button>
+        <button id="mLimpiar" class="btn dps-btn-outline w-100" type="button">Limpiar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal licencias -->
+  <div class="modal fade" id="modalLicencias" tabindex="-1" aria-labelledby="modalLicenciasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content dps-modal">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="modalLicenciasLabel">Licencias (resumen)</h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="mb-0">
+            <li><strong>Basic:</strong> uso no exclusivo.</li>
+            <li><strong>Premium:</strong> monetización.</li>
+            <li><strong>Exclusive:</strong> venta exclusiva.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button class="btn dps-btn-outline" type="button" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container dps-footer">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-2">
+      <p class="small dps-muted mb-0">© <span id="year"></span> Darfix Phantomsy Station</p>
+      <a class="small dps-muted text-decoration-none" href="index.html">Inicio</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
